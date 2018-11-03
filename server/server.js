@@ -6,7 +6,7 @@ const cookieParser = require('cookie-parser')
 mongoose.Promise = global.Promise;
 const {User} = require('./models/user');
 const {auth} = require('./middleware/auth')
-mongoose.connect("mongodb://localhost:27017/auth");
+mongoose.connect(process.env.MONGODB_URI||"mongodb://localhost:27017/auth");
 app.use(bodyParser.json());
 app.use(cookieParser());
 
